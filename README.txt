@@ -10,7 +10,7 @@ A Toolkit for Computing Constrained Optimal Policy Projections
 Version 1.0
 
 de Groot, Mazelis, Motto, Ristiniemi
-ECB Working Paper 2021 No. xxx
+ECB Working Paper 2021 No. 2555
 
 
 Copyright (C) de Groot, Mazelis, Motto, Ristiniemi
