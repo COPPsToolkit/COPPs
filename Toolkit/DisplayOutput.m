@@ -50,8 +50,8 @@ if strcmp(params.Constraint,'ON')
     if isfield(params.UserProvided,'QeDevMin')
             fprintf(['\n\t QeDevMin: ', num2str(params.UserProvided.QeDevMin)])
     end
-    if isfield(params.UserProvided,'QeDevMin')
-            fprintf(['\ns\t QeDevMin: ', num2str(params.UserProvided.QeDevMin)])
+    if isfield(params.UserProvided,'QeDevMax')
+            fprintf(['\n\t QeDevMax: ', num2str(params.UserProvided.QeDevMax)])
     end
     
 end
