@@ -38,7 +38,7 @@ params.PastPeriods         = 219;
 %% ########################################################################
 %%
 params.LossFunctionWeights = [1,0.25*0,4];
-params.DynareOptions       = ' -DFlatPC';
+params.DynareOptions       = '-DFlatPC';
 params.Constraint          = 'ON';
 params.RateMin             = 0.1;        % ELB in annual policy rate
 params.PolicyRateStSt      = 'ss_r_ann'; % Parameter name of annual StSt policy rate

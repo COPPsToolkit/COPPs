@@ -38,7 +38,7 @@ params.PastPeriods                 = 219;  % 2009 March
 %% ########################################################################
 %%
 params.LossFunctionWeights = [1,0.25*1,4];
-params.DynareOptions       = ' -DFlatPC';
+params.DynareOptions       = '-DFlatPC';
 
 params.plotting.VarsToPlot = {...
     'obs_pinf_4q' , [ -1 ,  4 ]  , 'Inflation (annual, P.P.)'     ; ...
