@@ -482,6 +482,9 @@ var ef = 1;
 var et2 = 1;
 end;
 
+resid;
+steady;
+
 @#ifdef SMOOTHER
     varobs 
     % dy 
