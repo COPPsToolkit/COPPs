@@ -1,0 +1,22 @@
+[1.1] - 2022-07-17
+
+Fixed compatibility with Dynare versions 5.0 and 5.1
+
+CHANGED
+-\Toolkit\COPPs.m 
+-\Toolkit\Fetch_model_from_Dynare.m 
+-\Toolkit\SolveCOPPs.m 
+-\Toolkit\SetRemainingParameters.m 
+-\IndividualProjections\Run_COPPs_Fig_9_b
+-\IndividualProjections\Run_COPPs_Fig_10_a
+-\IndividualProjections\Run_COPPs_Fig_10_b
+-\IndividualProjections\Run_COPPs_Fig_10_c
+-\IndividualProjections\Run_COPPs_Fig_11_a
+-\IndividualProjections\Run_COPPs_Fig_11_b
+-\IndividualProjections\Run_COPPs_Fig_11_c
+-\IndividualProjections\Run_COPPs_Fig_13_a
+-\IndividualProjections\Run_COPPs_Fig_13_b
+-\Models\SimsWu\SWu20.mod
+-Fig_8_PaperVersion.m
+-Fig_D1_PaperVersion.m
+-README.txt

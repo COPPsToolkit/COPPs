@@ -4,13 +4,11 @@ cd('Models\SW07')
 
 % Standard Phillips curve
 dynare Smets_Wouters_2007_GB09 -DIRFs noclearall
-load Smets_Wouters_2007_GB09_results
 oo_SWorg = oo_;
 save oo_SWorg_file oo_SWorg
 
 % Flat Phillips curve
 dynare Smets_Wouters_2007_GB09 -DIRFs -DFlatPC
-load Smets_Wouters_2007_GB09_results
 load oo_SWorg_file
 
 %% Read FRB/US IRFs
