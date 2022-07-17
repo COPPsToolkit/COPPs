@@ -117,9 +117,9 @@ if ~isfield(params,'PlotConstraints')
 end
 
 %% Misc
-if ~isfield(params,'DynareOptions')
-    params.DynareOptions = ' ';
-end
+% if ~isfield(params,'DynareOptions')
+%     params.DynareOptions = ' ';
+% end
 
 %% Algorithm
 if ~isfield(params,'MaxIter')

@@ -39,8 +39,7 @@ m.ns = M_.exo_nbr;
 % Extract the (linearised) structural model.  This is obtained by
 % calling the Dynare-created function -- FILENAME_dynamic -- where
 % FILENAME is the name of the model file passed to Dynare in the first
-% place.  This returns the Jacobian of the model (and, if requested,
-% the Hessian and third-order derivatives).
+% place.  This returns the Jacobian of the model (and, if requested,% the Hessian and third-order derivatives).
 
 % Extract the Jacobian (code copied from model_diagnostics.m in Dynare)
 klen = M_.maximum_lag + M_.maximum_lead + 1;
@@ -51,8 +50,13 @@ iyr0 = find(iyv) ;
 it_ = M_.maximum_lag + 1;
 z = repmat(oo_.dr.ys,1,klen);
 
-[~,model_jacobian] = feval([M_.fname '_dynamic'],z(iyr0),exo_simul, ...
-    M_.params, oo_.dr.ys, it_);
+if isfile([M_.fname '_dynamic.m'])
+    [~,model_jacobian] = feval([M_.fname '_dynamic'],z(iyr0),exo_simul, ...
+        M_.params, oo_.dr.ys, it_);
+else
+    [~,model_jacobian] = feval([M_.fname,'.dynamic'],z(iyr0),exo_simul, ...
+        M_.params, oo_.dr.ys, it_);
+end
 
 % Break it out into lag, current, lead and shock loading matrices
 m.H_B = zeros(m.nx,m.nx);

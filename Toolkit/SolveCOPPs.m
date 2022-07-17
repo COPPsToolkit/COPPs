@@ -27,8 +27,12 @@ end
 
 %% Call Dynare to estimate and fetch the model using simple rules for policy
 display('Call Dynare to solve the model in its baseline form')
-dynare(filename_stub,'-DLOAD_ESTIMATED_PARAMS','-DSMOOTHER',params.DynareOptions);
-load([filename_stub,'_results.mat'],'-mat','M_','oo_');
+if isfield(params,'DynareOptions')
+    dynare(filename_stub,'-DSMOOTHER',params.DynareOptions);
+else
+    dynare(filename_stub,'-DSMOOTHER');
+end
+load([filename_stub,'\Output\',filename_stub,'_results.mat'],'-mat','M_','oo_');
 
 [m_sr, Shocks_u, t0_inherited] = Fetch_model_from_Dynare(M_,oo_,params.PlannerDiscountFactor,params.PolicyInstrumentsAndShocks,params.LossFunctionVariables);
 d_sr = Build_d(m_sr,params.PastPeriods,params.T_full,Shocks_u,t0_inherited);
