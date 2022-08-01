@@ -1,3 +1,9 @@
+[1.1.1] - 2022-07-25
+
+Bugfix in SolveCOPPs.m
+
+CHANGED
+-\Toolkit\COPPs.m 
 [1.1] - 2022-07-17
 
 Fixed compatibility with Dynare versions 5.0 and 5.1
