@@ -33,6 +33,7 @@ exitflag = 1;
 % Inverter = m.aInverter;
 P = m.aP;
 Q = m.aQ;
+invPQ = P\Q;
 %R = m.aR;
 %C = m.aC;
 
@@ -77,7 +78,7 @@ for k = 1:ni
     for i = 1:T
         shocks_a = zeros(m.ns,T);
         shocks_a(m.InstrShkIndexes(k),i) = 1;
-        x = P\Q*shocks_a(:);
+        x = invPQ*shocks_a(:);
         x = reshape(x,m.nx,T);
         AX1((k-1)*T+i,:) = x(m.InstrVarIndexes(1),:);       % e.g. Response of instrument 1 (and 2) to instrument 1 shock 
         if ni == 2
