@@ -23,8 +23,8 @@ addpath('Toolkit');
 %% 
 
 % Model details
-params.ModelDirectory         = 'Models\SW07';
-params.ModelFilename          = 'Smets_Wouters_2007_GB09_mod210206';
+params.ModelDirectory         = 'Models/SW07';
+params.ModelFilename          = 'Smets_Wouters_2007_GB09';
 params.PlannerDiscountFactor  = 'beta_ss';
 
 % Target variables and policy variables

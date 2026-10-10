@@ -3,98 +3,99 @@
 % "A Toolkit for Computing Constrained Optimal Policy Projections (COPPs)"
 %% Preamble
 clear
+addpath('Toolkit');
 
-tic;Run_COPPs_Fig_2_a;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_2_a');toc;close all;clc
 proj.fig2a.params   = params;
 proj.fig2a.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_2_b;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_2_b');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig2b.params   = params;
 proj.fig2b.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_4_a;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_4_a');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig4a.params   = params;
 proj.fig4a.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_4_b;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_4_b');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig4b.params   = params;
 proj.fig4b.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_8_b;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_8_b');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig8b.params   = params;
 proj.fig8b.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_8_c;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_8_c');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig8c.params   = params;
 proj.fig8c.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_9_a;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_9_a');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig9a.params   = params;
 proj.fig9a.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_10_a;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_10_a');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig10a.params   = params;
 proj.fig10a.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_11_a;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_11_a');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig11a.params   = params;
 proj.fig11a.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_11_c;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_11_c');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig11c.params   = params;
 proj.fig11c.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_13_a;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_13_a');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig13a.params   = params;
 proj.fig13a.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_13_b;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_13_b');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig13b.params   = params;
 proj.fig13b.toc      = toc;
 save('TimingInfo','proj')
 
 %%
-tic;Run_COPPs_Fig_4_a_tempH20;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_4_a_tempH20');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig4aH20.params   = params;
 proj.fig4aH20.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_4_a_tempH40;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_4_a_tempH40');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig4aH40.params   = params;
 proj.fig4aH40.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_4_b_tempH20;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_4_b_tempH20');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig4bH20.params   = params;
 proj.fig4bH20.toc      = toc;
 save('TimingInfo','proj')
 
-tic;Run_COPPs_Fig_4_b_tempH40;toc;close all;clc
+tic;run('IndividualProjections/Run_COPPs_Fig_4_b_tempH40');toc;close all;clc
 load('TimingInfo','proj')
 proj.fig4bH40.params   = params;
 proj.fig4bH40.toc      = toc;

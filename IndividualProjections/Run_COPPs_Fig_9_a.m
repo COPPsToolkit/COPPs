@@ -14,7 +14,7 @@ clear;
 clc;
 
 % Add toolkit to matlab path 
-addpath('..\Toolkit');
+addpath('../Toolkit');
 
 %% ########################################################################
 %% ##################        Required user input         ##################
@@ -22,7 +22,7 @@ addpath('..\Toolkit');
 %% 
 
 % Model details
-params.ModelDirectory         = '..\Models\SW07';
+params.ModelDirectory         = '../Models/SW07';
 params.ModelFilename          = 'Smets_Wouters_2007_GB09';
 params.PlannerDiscountFactor  = 'beta_ss';
 

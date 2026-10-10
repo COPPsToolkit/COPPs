@@ -14,7 +14,7 @@ clear;
 clc;
 
 % Add toolkit to matlab path 
-addpath('..\Toolkit');
+addpath('../Toolkit');
 
 %% ########################################################################
 %% ##################        Required user input         ##################
@@ -22,7 +22,7 @@ addpath('..\Toolkit');
 %% 
 
 % Model details
-params.ModelDirectory         = '..\Models\GaliNK3';
+params.ModelDirectory         = '../Models/GaliNK3';
 params.ModelFilename          = 'GaliNK3';
 params.PlannerDiscountFactor  = 'beta';
 params.RateMin                = 0;        % ELB in annual policy rate

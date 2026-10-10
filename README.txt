@@ -33,6 +33,14 @@ For further information, visit https://github.com/COPPsToolkit/COPPs
 
 --------------------------------------------------------------
 
+Requirements:
+
+This version requires the unstable version of Dynare (https://www.dynare.org/download/),
+which generates the sparse representation of the model. A version compatible with
+Dynare 5.x is kept in the dynare-5.x branch.
+
+--------------------------------------------------------------
+
 Content:
 
 
@@ -42,7 +50,7 @@ A. Files
 
 2: 	A manual that describes how to produce COPPs with new models and additional options, see COPPs_Manual_v1p1.pdf. 
 
-3:	Run_COPPS.m can be copied to be used as a template. It provides a simple example that runs optimal policy projections for the Smets and Wouters model without constraints. 
+3:	Run_COPPs.m can be copied to be used as a template. It provides a simple example that runs optimal policy projections for the Smets and Wouters model without constraints. 
 
 4: 	Replication files for all figures in the working paper. 
 	Open the script Fig_XY_PaperVersion.m related to chart XY and execute. The Matlab paths to the optimization toolbox and Dynare need to be set manually. 
@@ -55,11 +63,11 @@ A. Files
 
 B. Folders
 
-1:	\Toolkit includes the core files required to execute any Constrained Optimal Policy Projection.
+1:	Toolkit includes the core files required to execute any Constrained Optimal Policy Projection.
 
-2:	\Models contains several folders with dynare mod-files and related datafiles, which are drawn on in the computation of COPPs. 
+2:	Models contains several folders with dynare mod-files and related datafiles, which are drawn on in the computation of COPPs. 
 
-3:	\IndividualProjections includes all individual COPPs scripts that are drawn on for the replication of figures in the working paper. 
+3:	IndividualProjections includes all individual COPPs scripts that are drawn on for the replication of figures in the working paper. 
 
-4:	\MiscReplication provides the mod-files that compute optimal policy via the Lagrangian approach. 
+4:	MiscReplication provides the mod-files that compute optimal policy via the Lagrangian approach. 
 

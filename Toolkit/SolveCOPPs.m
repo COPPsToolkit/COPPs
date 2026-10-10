@@ -27,16 +27,18 @@ end
 
 %% Call Dynare to estimate and fetch the model using simple rules for policy
 display('Call Dynare to solve the model in its baseline form')
+DynareOptions = {};
 if isfield(params,'DynareOptions')
-    dynare(filename_stub,'-DSMOOTHER',params.DynareOptions);
-else
-    dynare(filename_stub,'-DSMOOTHER');
+    DynareOptions = params.DynareOptions;
+    if ischar(DynareOptions)
+        % Several options may be given in one string, pass them separately
+        DynareOptions = strsplit(strtrim(DynareOptions));
+    end
 end
-if isfile([filename_stub '_dynamic.m'])
-load([filename_stub,'_results.mat'],'-mat','M_','oo_');
-else
-load([filename_stub,'\Output\',filename_stub,'_results.mat'],'-mat','M_','oo_');
-end
+% The toolkit draws its own charts, Dynare must not plot (and save) the
+% results of the smoother
+dynare(filename_stub,'-DSMOOTHER','nograph',DynareOptions{:});
+load(fullfile(filename_stub,'Output',[filename_stub,'_results.mat']),'-mat','M_','oo_');
 
 [m_sr, Shocks_u, t0_inherited] = Fetch_model_from_Dynare(M_,oo_,params.PlannerDiscountFactor,params.PolicyInstrumentsAndShocks,params.LossFunctionVariables);
 d_sr = Build_d(m_sr,params.PastPeriods,params.T_full,Shocks_u,t0_inherited);

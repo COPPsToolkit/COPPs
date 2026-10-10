@@ -14,7 +14,7 @@ clear;
 clc;
 
 % Add toolkit to matlab path 
-addpath('..\Toolkit');
+addpath('../Toolkit');
 
 %% ########################################################################
 %% ##################        Required user input         ##################
@@ -22,7 +22,7 @@ addpath('..\Toolkit');
 %% 
 
 % Model details
-params.ModelDirectory         = '..\Models\GaliNKStickW';
+params.ModelDirectory         = '../Models/GaliNKStickW';
 params.ModelFilename          = 'GaliNKStickW';
 params.PlannerDiscountFactor  = 'betta';
 

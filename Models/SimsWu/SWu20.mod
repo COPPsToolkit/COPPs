@@ -493,6 +493,6 @@ steady;
     robs 
     qeobs
     ;
-    calib_smoother(datafile='usmodel_data_fromSW07.xls');
+    calib_smoother(datafile='usmodel_data_fromSW07.csv');
 @#endif
 

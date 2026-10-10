@@ -24,9 +24,8 @@ function [m, Shocks_u, t0_inherited] = Fetch_model_from_Dynare(M_,oo_,PlannerDis
 %   <- m                     : A model file for further processing
 %
 % NOTES:
-%   To understand this function, see the documentation in the Dynare
-%   Reference Manual entries on "FILENAME_dynamic.m" and "Typology and
-%   ordering of variables".
+%   Requires a version of Dynare that generates the sparse representation
+%   of the model (+FILENAME/dynamic_g1.m), i.e. the unstable version.
 %
 %   Acknowledgements: Modified from code provided by J. Barrdear
 %--------------------------------------------------------------------------
@@ -37,49 +36,23 @@ m.ns = M_.exo_nbr;
 
 % ---------------------------------------------------------------------
 % Extract the (linearised) structural model.  This is obtained by
-% calling the Dynare-created function -- FILENAME_dynamic -- where
+% calling the Dynare-created function -- +FILENAME/dynamic_g1.m -- where
 % FILENAME is the name of the model file passed to Dynare in the first
-% place.  This returns the Jacobian of the model (and, if requested,% the Hessian and third-order derivatives).
+% place.  This returns the (sparse) Jacobian of the model with respect to
+% [y_{t-1}; y_t; y_{t+1}; u_t], endogenous variables in declaration order.
 
-% Extract the Jacobian (code copied from model_diagnostics.m in Dynare)
-klen = M_.maximum_lag + M_.maximum_lead + 1;
-exo_simul = [repmat(oo_.exo_steady_state',klen,1) repmat(oo_.exo_det_steady_state',klen,1)];
-iyv = M_.lead_lag_incidence';
-iyv = iyv(:);
-iyr0 = find(iyv) ;
-it_ = M_.maximum_lag + 1;
-z = repmat(oo_.dr.ys,1,klen);
-
-if isfile([M_.fname '_dynamic.m'])
-    [~,model_jacobian] = feval([M_.fname '_dynamic'],z(iyr0),exo_simul, ...
-        M_.params, oo_.dr.ys, it_);
-else
-    [~,model_jacobian] = feval([M_.fname,'.dynamic'],z(iyr0),exo_simul, ...
-        M_.params, oo_.dr.ys, it_);
-end
+n  = M_.endo_nbr;
+g1 = feval([M_.fname '.dynamic_g1'], repmat(oo_.dr.ys,3,1), ...
+    [oo_.exo_steady_state; oo_.exo_det_steady_state], M_.params, oo_.dr.ys, ...
+    M_.dynamic_g1_sparse_rowval, M_.dynamic_g1_sparse_colval, M_.dynamic_g1_sparse_colptr);
+g1 = full(g1);
 
 % Break it out into lag, current, lead and shock loading matrices
-m.H_B = zeros(m.nx,m.nx);
-m.H_C = zeros(m.nx,m.nx);
-m.H_F = zeros(m.nx,m.nx);
+m.H_B = g1(:,1:n);
+m.H_C = g1(:,n+1:2*n);
+m.H_F = g1(:,2*n+1:3*n);
 
-if M_.maximum_lag
-    LLIrow = 1;
-    [~,row,col]=find(M_.lead_lag_incidence(LLIrow,:));
-    m.H_B(:,row) = model_jacobian(:,col);
-end
-
-LLIrow = 2;
-[~,row,col]=find(M_.lead_lag_incidence(LLIrow,:));
-m.H_C(:,row) = model_jacobian(:,col);
-
-if M_.maximum_lead
-    LLIrow = 3;
-    [~,row,col]=find(M_.lead_lag_incidence(LLIrow,:));
-    m.H_F(:,row) = model_jacobian(:,col);
-end
-
-m.PSI = -model_jacobian(:,nnz(M_.lead_lag_incidence')+1:end);
+m.PSI = -g1(:,3*n+(1:m.ns));
 
 
 % ---------------------------------------------------------------------

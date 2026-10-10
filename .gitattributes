@@ -1,0 +1,8 @@
+# Store text files with LF line endings in the repository.
+* text=auto
+
+# Data files.
+*.xls  binary
+*.xlsx binary
+*.mat  binary
+*.pdf  binary

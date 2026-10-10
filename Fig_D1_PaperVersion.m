@@ -1,4 +1,4 @@
-cd('Models\SW07')
+cd('Models/SW07')
 
 %% Generate SW07 IRFs
 
@@ -63,6 +63,5 @@ ylim([-0.5 1.0])
 legend('New FRBUS - VAR expectations','New FRBUS - MCE','Old FRBUS - VAR expectations','Old FRBUS - MCE','SW07: Steep PC','SW07: Flat PC')
 
 %%
-cd ..
 cd ..
 cd ..

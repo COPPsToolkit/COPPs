@@ -298,11 +298,11 @@ end;
     ;
 
     @#ifndef SteepFwd
-    calib_smoother(datafile='usmodel_data.xls',diffuse_filter);
+    calib_smoother(datafile='usmodel_data.csv',diffuse_filter);
     @#endif
 
     @#ifdef SteepFwd
-    calib_smoother(datafile='usmodel_data_SteepFwd.xls',diffuse_filter);
+    calib_smoother(datafile='usmodel_data_SteepFwd.csv',diffuse_filter);
     @#endif
 
 @#endif

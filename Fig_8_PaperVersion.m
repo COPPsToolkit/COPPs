@@ -6,22 +6,22 @@ clear
 addpath('Toolkit');
 
 %% Run individual script
-run('IndividualProjections\Run_COPPs_Fig_8_a')
+run('IndividualProjections/Run_COPPs_Fig_8_a')
 projections_all.simple_rules = projections.simple_rules; 
 projections_all.COPPs_8a = projections.COPPs; 
 save('FigureInfo','projections_all')
 %% Run individual script
-run('IndividualProjections\Run_COPPs_Fig_8_b')
+run('IndividualProjections/Run_COPPs_Fig_8_b')
 load('FigureInfo','projections_all')
 projections_all.COPPs_8b = projections.COPPs; 
 save('FigureInfo','projections_all')
 %% Run individual script
-run('IndividualProjections\Run_COPPs_Fig_8_c')
+run('IndividualProjections/Run_COPPs_Fig_8_c')
 load('FigureInfo','projections_all')
 projections_all.COPPs_8c = projections.COPPs; 
 save('FigureInfo','projections_all')
 %% Run individual script
-run('IndividualProjections\Run_COPPs_Fig_8_d')
+run('IndividualProjections/Run_COPPs_Fig_8_d')
 load('FigureInfo','projections_all')
 projections_all.COPPs_8d = projections.COPPs; 
 save('FigureInfo','projections_all')
